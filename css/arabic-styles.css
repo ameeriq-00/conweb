@@ -117,10 +117,14 @@ html[dir="rtl"] .social-links {
     direction: ltr;
     unicode-bidi: bidi-override;
 }
+.arabic-body .price2 {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    unicode-bidi: bidi-override;
+}
 
 /* Phone numbers RTL fix */
 .arabic-body .contact-info p:last-child {
-    direction: ltr;
     text-align: right;
 }
 
@@ -211,4 +215,25 @@ html[dir="rtl"] .social-links {
     .arabic-body .speaker-card h3 {
         font-size: 1rem;
     }
+}
+
+/* Arabic RTL Adjustments */
+html[dir="rtl"] .info-cards-grid {
+    direction: rtl;
+}
+
+html[dir="rtl"] .description-text {
+    text-align: right;
+}
+
+html[dir="rtl"] .description-box {
+    text-align: center;
+}
+
+.arabic-body .description-text {
+    text-align: right;
+}
+
+.arabic-body .description-box {
+    text-align: center;
 }
