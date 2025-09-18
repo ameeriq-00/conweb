@@ -16,7 +16,14 @@
                 <i class="fas fa-graduation-cap"></i>
                 <h1>IUPMC</h1>
             </div>
-            <nav class="top-nav">
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Top Navigation Menu -->
+            <nav class="top-nav" id="topNav">
                 <ul>
                     <li><a href="index.html" class="active">English</a></li>
                     <li><a href="arabic.html">العربية</a></li>
@@ -25,6 +32,9 @@
             </nav>
         </div>
     </header>
+
+    <!-- Menu Overlay for Mobile -->
+    <div class="menu-overlay" id="menuOverlay"></div>
 
     <!-- Hero Image Section -->
     <section class="hero-image">
@@ -65,7 +75,9 @@
     <div class="main-container">
         <div class="main-container-inner">
             <!-- Sidebar -->
-            <aside class="sidebar">
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                </div>
                 <nav class="sidebar-nav">
                     <ul>
                         <li><a href="#about" class="active">About the Conference</a></li>
@@ -83,167 +95,167 @@
 
             <!-- Main Content -->
             <main class="content">
-            <!-- About the Conference -->
-            <section id="about" class="content-section">
-                <h2>About the Conference</h2>
-                <p>The conference serves as an international platform to:</p>
-                <ul>
-                    <li>Present cutting-edge research in pharmaceutical and medical sciences.</li>
-                    <li>Encourage interdisciplinary collaboration between academia, healthcare, and industry.</li>
-                    <li>Provide opportunities for young researchers to showcase their work.</li>
-                    <li>Facilitate partnerships with international journals and publishers for high-impact publication.</li>
-                </ul>
-            </section>
+                <!-- About the Conference -->
+                <section id="about" class="content-section">
+                    <h2>About the Conference</h2>
+                    <p>The conference serves as an international platform to:</p>
+                    <ul>
+                        <li>Present cutting-edge research in pharmaceutical and medical sciences.</li>
+                        <li>Encourage interdisciplinary collaboration between academia, healthcare, and industry.</li>
+                        <li>Provide opportunities for young researchers to showcase their work.</li>
+                        <li>Facilitate partnerships with international journals and publishers for high-impact publication.</li>
+                    </ul>
+                </section>
 
-            <!-- Conference Tracks & Topics -->
-            <section id="tracks" class="content-section">
-                <h2>Conference Tracks & Topics</h2>
-                <p>The scientific program will cover the following tracks:</p>
-                <div class="tracks-grid">
-                    <div class="track-card">
-                        <h3>1. Pharmacognosy</h3>
-                        <p>Natural products, herbal medicines, pharmacological evaluations.</p>
+                <!-- Conference Tracks & Topics -->
+                <section id="tracks" class="content-section">
+                    <h2>Conference Tracks & Topics</h2>
+                    <p>The scientific program will cover the following tracks:</p>
+                    <div class="tracks-grid">
+                        <div class="track-card">
+                            <h3>1. Pharmacognosy</h3>
+                            <p>Natural products, herbal medicines, pharmacological evaluations.</p>
+                        </div>
+                        <div class="track-card">
+                            <h3>2. Drug Delivery Systems</h3>
+                            <p>Nanotechnology, biotechnology, advanced delivery mechanisms.</p>
+                        </div>
+                        <div class="track-card">
+                            <h3>3. Clinical Trials</h3>
+                            <p>Drug safety, efficacy testing, regulatory aspects.</p>
+                        </div>
+                        <div class="track-card">
+                            <h3>4. Medicinal Chemistry</h3>
+                            <p>Drug design, synthesis, molecular modeling, chemical technologies.</p>
+                        </div>
+                        <div class="track-card">
+                            <h3>5. Dentistry</h3>
+                            <p>Restorative, cosmetic, and preventive dentistry; oral health innovations.</p>
+                        </div>
+                        <div class="track-card">
+                            <h3>6. Medical Sciences</h3>
+                            <p>Clinical medicine, diagnostics, health technology, and biomedical engineering.</p>
+                        </div>
                     </div>
-                    <div class="track-card">
-                        <h3>2. Drug Delivery Systems</h3>
-                        <p>Nanotechnology, biotechnology, advanced delivery mechanisms.</p>
-                    </div>
-                    <div class="track-card">
-                        <h3>3. Clinical Trials</h3>
-                        <p>Drug safety, efficacy testing, regulatory aspects.</p>
-                    </div>
-                    <div class="track-card">
-                        <h3>4. Medicinal Chemistry</h3>
-                        <p>Drug design, synthesis, molecular modeling, chemical technologies.</p>
-                    </div>
-                    <div class="track-card">
-                        <h3>5. Dentistry</h3>
-                        <p>Restorative, cosmetic, and preventive dentistry; oral health innovations.</p>
-                    </div>
-                    <div class="track-card">
-                        <h3>6. Medical Sciences</h3>
-                        <p>Clinical medicine, diagnostics, health technology, and biomedical engineering.</p>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Keynote Speakers -->
-            <section id="keynotes" class="content-section">
-                <h2>Keynote Speakers</h2>
-                <div class="speakers-grid">
-                    <div class="speaker-card">
-                        <h3>Prof. Osama Ramadan Abdel Mohsen</h3>
-                        <p>Deraya University, Egypt</p>
+                <!-- Keynote Speakers -->
+                <section id="keynotes" class="content-section">
+                    <h2>Keynote Speakers</h2>
+                    <div class="speakers-grid">
+                        <div class="speaker-card">
+                            <h3>Prof. Osama Ramadan Abdel Mohsen</h3>
+                            <p>Deraya University, Egypt</p>
+                        </div>
+                        <div class="speaker-card">
+                            <h3>Dr. Nabil Hamad Al-Hamadi</h3>
+                            <p>U.S. Food and Drug Administration (FDA)</p>
+                        </div>
+                        <div class="speaker-card">
+                            <h3>Prof. Heikki Murtomaa</h3>
+                            <p>University of Helsinki, Finland</p>
+                        </div>
+                        <div class="speaker-card">
+                            <h3>Prof. Tarek Youssef</h3>
+                            <p>University of West Florida, USA</p>
+                        </div>
+                        <div class="speaker-card">
+                            <h3>Assoc. Prof. Khairiya Youssef</h3>
+                            <p>Al-Salihiya University, Egypt</p>
+                        </div>
                     </div>
-                    <div class="speaker-card">
-                        <h3>Dr. Nabil Hamad Al-Hamadi</h3>
-                        <p>U.S. Food and Drug Administration (FDA)</p>
-                    </div>
-                    <div class="speaker-card">
-                        <h3>Prof. Heikki Murtomaa</h3>
-                        <p>University of Helsinki, Finland</p>
-                    </div>
-                    <div class="speaker-card">
-                        <h3>Prof. Tarek Youssef</h3>
-                        <p>University of West Florida, USA</p>
-                    </div>
-                    <div class="speaker-card">
-                        <h3>Assoc. Prof. Khairiya Youssef</h3>
-                        <p>Al-Salihiya University, Egypt</p>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Committees -->
-            <section id="committees" class="content-section">
-                <h2>Committees</h2>
-                <h3>Organizing & Preparatory Committee</h3>
-                <ul>
-                    <li>Prof. Ammar Abdulameer Al-Salami -- University President (Chair)</li>
-                    <li>Prof. Abdul Majid Abdullah Jabr Al-Saadi -- Dean, College of Medical Analysis (Member)</li>
-                    <li>Prof. Abbas Abdul Yameh Al-Aboudi -- Dean, College of Dentistry (Member)</li>
-                    <li>Prof. Shaker Shanawa Saleh -- Dean, College of Pharmacy (Member)</li>
-                    <li>Dr. Mohamed Abdel Aal Abdel Aziz -- General Coordinator (Member)</li>
-                    <li>Dr. Ghadeer Sabah Bustani -- Follow-up Officer (Member)</li>
-                    <li>Mr. Ali Abdul Rasool Razi Al-Salami -- Director of Media & PR (Member)</li>
-                    <li>Eng. Amir Ali Mandhoor -- Programmer & Designer (Member)</li>
-                </ul>
-            </section>
+                <!-- Committees -->
+                <section id="committees" class="content-section">
+                    <h2>Committees</h2>
+                    <h3>Organizing & Preparatory Committee</h3>
+                    <ul>
+                        <li>Prof. Ammar Abdulameer Al-Salami -- University President (Chair)</li>
+                        <li>Prof. Abdul Majid Abdullah Jabr Al-Saadi -- Dean, College of Medical Analysis (Member)</li>
+                        <li>Prof. Abbas Abdul Yameh Al-Aboudi -- Dean, College of Dentistry (Member)</li>
+                        <li>Prof. Shaker Shanawa Saleh -- Dean, College of Pharmacy (Member)</li>
+                        <li>Dr. Mohamed Abdel Aal Abdel Aziz -- General Coordinator (Member)</li>
+                        <li>Dr. Ghadeer Sabah Bustani -- Follow-up Officer (Member)</li>
+                        <li>Mr. Ali Abdul Rasool Razi Al-Salami -- Director of Media & PR (Member)</li>
+                        <li>Eng. Amir Ali Mandhoor -- Programmer & Designer (Member)</li>
+                    </ul>
+                </section>
 
-            <!-- Submission & Publication -->
-            <section id="submission" class="content-section">
-                <h2>Submission & Publication</h2>
-                <ul>
-                    <li>Submissions are managed via the <strong>Open Journal System (OJS)</strong>.</li>
-                    <li>All papers undergo plagiarism detection using <strong>Turnitin</strong>.</li>
-                    <li>Peer review is conducted by the <strong>Scientific Committee</strong>.</li>
-                    <li>Accepted papers will be published in:
-                        <ul>
-                            <li><em>Iraqi Journal of Pharmaceutical Sciences</em></li>
-                            <li><em>Indian Journal of Heterocyclic Chemistry</em></li>
-                            <li><em>PLOS ONE</em></li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
+                <!-- Submission & Publication -->
+                <section id="submission" class="content-section">
+                    <h2>Submission & Publication</h2>
+                    <ul>
+                        <li>Submissions are managed via the <strong>Open Journal System (OJS)</strong>.</li>
+                        <li>All papers undergo plagiarism detection using <strong>Turnitin</strong>.</li>
+                        <li>Peer review is conducted by the <strong>Scientific Committee</strong>.</li>
+                        <li>Accepted papers will be published in:
+                            <ul>
+                                <li><em>Iraqi Journal of Pharmaceutical Sciences</em></li>
+                                <li><em>Indian Journal of Heterocyclic Chemistry</em></li>
+                                <li><em>PLOS ONE</em></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
 
-            <!-- Important Dates -->
-            <section id="dates" class="content-section">
-                <h2>Important Dates</h2>
-                <div class="dates-grid">
-                    <div class="date-item">
-                        <h3>Abstract submission deadline</h3>
-                        <p><strong>1 November 2025</strong></p>
+                <!-- Important Dates -->
+                <section id="dates" class="content-section">
+                    <h2>Important Dates</h2>
+                    <div class="dates-grid">
+                        <div class="date-item">
+                            <h3>Abstract submission deadline</h3>
+                            <p><strong>1 November 2025</strong></p>
+                        </div>
+                        <div class="date-item">
+                            <h3>Full paper deadline</h3>
+                            <p><strong>20 November 2025</strong></p>
+                        </div>
+                        <div class="date-item">
+                            <h3>Notification of acceptance</h3>
+                            <p><strong>30 November 2025</strong></p>
+                        </div>
+                        <div class="date-item">
+                            <h3>Conference date</h3>
+                            <p><strong>13 December 2025</strong></p>
+                        </div>
                     </div>
-                    <div class="date-item">
-                        <h3>Full paper deadline</h3>
-                        <p><strong>20 November 2025</strong></p>
-                    </div>
-                    <div class="date-item">
-                        <h3>Notification of acceptance</h3>
-                        <p><strong>30 November 2025</strong></p>
-                    </div>
-                    <div class="date-item">
-                        <h3>Conference date</h3>
-                        <p><strong>13 December 2025</strong></p>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Registration & Fees -->
-            <section id="registration" class="content-section">
-                <h2>Registration & Fees</h2>
-                <div class="fees-grid">
-                    <div class="fee-card">
-                        <h3>Research participation</h3>
-                        <p class="price">50,000 IQD</p>
-                        <p>Includes: certificate, lunch, scientific bag</p>
+                <!-- Registration & Fees -->
+                <section id="registration" class="content-section">
+                    <h2>Registration & Fees</h2>
+                    <div class="fees-grid">
+                        <div class="fee-card">
+                            <h3>Research participation</h3>
+                            <p class="price">50,000 IQD</p>
+                            <p>Includes: certificate, lunch, scientific bag</p>
+                        </div>
+                        <div class="fee-card">
+                            <h3>Attendance only</h3>
+                            <p class="price">25,000 IQD</p>
+                            <p>Includes: certificate, lunch</p>
+                        </div>
                     </div>
-                    <div class="fee-card">
-                        <h3>Attendance only</h3>
-                        <p class="price">25,000 IQD</p>
-                        <p>Includes: certificate, lunch</p>
+                </section>
+
+                <!-- Accompanying Activities -->
+                <section id="activities" class="content-section">
+                    <h2>Accompanying Activities</h2>
+                    <ul>
+                        <li>Specialized <strong>dental workshops</strong> hosted at the Islamic University clinics, with international lecturers.</li>
+                        <li>A <strong>medical and pharmaceutical exhibition</strong> with participation from leading companies.</li>
+                    </ul>
+                </section>
+
+                <!-- Contact -->
+                <section id="contact" class="content-section">
+                    <h2>Contact</h2>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> ipams@iunajaf.edu.iq</p>
+                        <p><strong>Phone:</strong> +964 782 990 0246 | +964 782 707 6417</p>
                     </div>
-                </div>
-            </section>
-
-            <!-- Accompanying Activities -->
-            <section id="activities" class="content-section">
-                <h2>Accompanying Activities</h2>
-                <ul>
-                    <li>Specialized <strong>dental workshops</strong> hosted at the Islamic University clinics, with international lecturers.</li>
-                    <li>A <strong>medical and pharmaceutical exhibition</strong> with participation from leading companies.</li>
-                </ul>
-            </section>
-
-            <!-- Contact -->
-            <section id="contact" class="content-section">
-                <h2>Contact</h2>
-                <div class="contact-info">
-                    <p><strong>Email:</strong> ipams@iunajaf.edu.iq</p>
-                    <p><strong>Phone:</strong> +964 782 990 0246 | +964 782 707 6417</p>
-                </div>
-            </section>
+                </section>
             </main>
         </div>
     </div>

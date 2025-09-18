@@ -1,13 +1,95 @@
-// IUPMC 2025 Conference Website JavaScript
+// IUPMC 2025 Conference Website JavaScript - Enhanced Mobile Version
 document.addEventListener("DOMContentLoaded", function () {
-  // Smooth scrolling for sidebar navigation
+  // Mobile menu elements
+  const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+  const topNav = document.getElementById("topNav");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const sidebar = document.getElementById("sidebar");
+  const sidebarClose = document.getElementById("sidebarClose");
+
+  // Sidebar navigation elements
   const sidebarLinks = document.querySelectorAll(".sidebar-nav a");
   const sections = document.querySelectorAll(".content-section");
+
+  // Mobile Menu Toggle Functionality
+  function toggleMobileMenu() {
+    const isActive = topNav.classList.contains("active");
+
+    if (isActive) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  }
+
+  function openMobileMenu() {
+    topNav.classList.add("active");
+    menuOverlay.classList.add("active");
+    mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMobileMenu() {
+    topNav.classList.remove("active");
+    menuOverlay.classList.remove("active");
+    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    document.body.style.overflow = "";
+  }
+
+  // Mobile Sidebar Toggle Functionality
+  function toggleSidebar() {
+    const isActive = sidebar.classList.contains("active");
+
+    if (isActive) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  }
+
+  function openSidebar() {
+    sidebar.classList.add("active");
+    menuOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove("active");
+    menuOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  // Event Listeners for Mobile Menu
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener("click", toggleMobileMenu);
+  }
+
+  if (menuOverlay) {
+    menuOverlay.addEventListener("click", function () {
+      closeMobileMenu();
+      closeSidebar();
+    });
+  }
+
+  if (sidebarClose) {
+    sidebarClose.addEventListener("click", closeSidebar);
+  }
+
+  // Close mobile menu when clicking on nav links
+  const topNavLinks = topNav.querySelectorAll("a");
+  topNavLinks.forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
+  });
 
   // Handle sidebar navigation clicks
   sidebarLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
+
+      // Close sidebar on mobile when link is clicked
+      if (window.innerWidth <= 768) {
+        closeSidebar();
+      }
 
       // Remove active class from all links
       sidebarLinks.forEach((l) => l.classList.remove("active"));
@@ -56,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Listen for scroll events
+  // Listen for scroll events with throttling
   let ticking = false;
   window.addEventListener("scroll", function () {
     if (!ticking) {
@@ -93,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(card);
   });
 
-  // Add animation styles
+  // Add animation styles dynamically
   const style = document.createElement("style");
   style.textContent = `
         .track-card, .speaker-card, .date-item, .fee-card {
@@ -123,71 +205,23 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
   document.head.appendChild(style);
 
-  // Mobile menu functionality for smaller screens
-  function handleMobileMenu() {
-    const sidebar = document.querySelector(".sidebar");
-    const content = document.querySelector(".content");
+  // Handle window resize events
+  function handleResize() {
+    const width = window.innerWidth;
 
-    if (window.innerWidth <= 768) {
-      // Create mobile menu toggle if it doesn't exist
-      let menuToggle = document.querySelector(".mobile-menu-toggle");
-      if (!menuToggle) {
-        menuToggle = document.createElement("button");
-        menuToggle.className = "mobile-menu-toggle";
-        menuToggle.innerHTML = "☰ Menu";
-        menuToggle.style.cssText = `
-                    position: fixed;
-                    top: 80px;
-                    left: 20px;
-                    z-index: 1000;
-                    background: #1e3a8a;
-                    color: white;
-                    border: none;
-                    padding: 10px 15px;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    font-size: 14px;
-                `;
-        document.body.appendChild(menuToggle);
+    // Close mobile menus when resizing to desktop
+    if (width > 768) {
+      closeMobileMenu();
+      closeSidebar();
 
-        // Toggle sidebar visibility
-        menuToggle.addEventListener("click", function () {
-          sidebar.style.display =
-            sidebar.style.display === "block" ? "none" : "block";
-          if (sidebar.style.display === "block") {
-            sidebar.style.position = "fixed";
-            sidebar.style.top = "120px";
-            sidebar.style.left = "20px";
-            sidebar.style.zIndex = "999";
-            sidebar.style.maxHeight = "calc(100vh - 140px)";
-            sidebar.style.overflowY = "auto";
-          }
-        });
-
-        // Hide sidebar when clicking outside
-        document.addEventListener("click", function (e) {
-          if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
-            sidebar.style.display = "none";
-          }
-        });
-      }
-    } else {
-      // Remove mobile menu toggle on larger screens
-      const menuToggle = document.querySelector(".mobile-menu-toggle");
-      if (menuToggle) {
-        menuToggle.remove();
-      }
+      // Reset sidebar styles for desktop
       sidebar.style.display = "";
-      sidebar.style.position = "";
-      sidebar.style.top = "";
-      sidebar.style.left = "";
-      sidebar.style.zIndex = "";
+      sidebar.style.transform = "";
     }
   }
 
-  // Handle window resize
-  window.addEventListener("resize", handleMobileMenu);
-  handleMobileMenu(); // Initial call
+  // Listen for window resize
+  window.addEventListener("resize", handleResize);
 
   // Add click effects to buttons and links
   document.addEventListener("click", function (e) {
@@ -195,8 +229,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // Add ripple effect
       const ripple = document.createElement("span");
       ripple.classList.add("ripple");
-      e.target.appendChild(ripple);
 
+      // Position the ripple relative to the click
       const rect = e.target.getBoundingClientRect();
       const size = Math.max(rect.width, rect.height);
       const x = e.clientX - rect.left - size / 2;
@@ -213,13 +247,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 transform: scale(0);
                 animation: ripple 0.6s ease-out;
                 pointer-events: none;
+                z-index: 1;
             `;
 
+      e.target.appendChild(ripple);
       setTimeout(() => ripple.remove(), 600);
     }
   });
 
-  // Add ripple animation
+  // Add ripple animation styles
   const rippleStyle = document.createElement("style");
   rippleStyle.textContent = `
         @keyframes ripple {
@@ -236,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
   document.head.appendChild(rippleStyle);
 
-  // Lazy loading for any images (if added later)
+  // Lazy loading for images
   const images = document.querySelectorAll("img[data-src]");
   const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
@@ -251,7 +287,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   images.forEach((img) => imageObserver.observe(img));
 
-  // Add loading animation for the page
+  // Enhanced loading animation
   window.addEventListener("load", function () {
     document.body.classList.add("loaded");
 
@@ -270,8 +306,83 @@ document.addEventListener("DOMContentLoaded", function () {
     document.head.appendChild(loadedStyle);
   });
 
+  // Keyboard navigation support
+  document.addEventListener("keydown", function (e) {
+    // Close menus with Escape key
+    if (e.key === "Escape") {
+      closeMobileMenu();
+      closeSidebar();
+    }
+  });
+
+  // Touch gesture support for mobile sidebar
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  document.addEventListener("touchstart", function (e) {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  document.addEventListener("touchend", function (e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeThreshold = 100;
+    const diff = touchStartX - touchEndX;
+
+    // Only handle swipes on mobile
+    if (window.innerWidth <= 768) {
+      // Swipe left to close sidebar
+      if (diff > swipeThreshold && sidebar.classList.contains("active")) {
+        closeSidebar();
+      }
+      // Swipe right to open sidebar (from left edge)
+      else if (
+        diff < -swipeThreshold &&
+        touchStartX < 50 &&
+        !sidebar.classList.contains("active")
+      ) {
+        openSidebar();
+      }
+    }
+  }
+
+  // Smooth scroll behavior for all internal links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        const headerHeight = document.querySelector(".top-header").offsetHeight;
+        const targetPosition = target.offsetTop - headerHeight - 20;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+
   // Console message for developers
   console.log("🎉 IUPMC 2025 Conference Website Loaded Successfully!");
+  console.log("📱 Enhanced Mobile Experience Enabled");
   console.log("📅 Date: 13 December 2025");
   console.log("📍 Location: Islamic University, Najaf, Iraq");
+
+  // Performance monitoring
+  if ("performance" in window) {
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        const perfData = performance.getEntriesByType("navigation")[0];
+        console.log(
+          `⚡ Page loaded in ${Math.round(
+            perfData.loadEventEnd - perfData.fetchStart
+          )}ms`
+        );
+      }, 0);
+    });
+  }
 });
