@@ -1,0 +1,214 @@
+/* Arabic-specific styles for IUPMC 2025 */
+
+/* Arabic Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+
+/* RTL Body Styling */
+.arabic-body {
+    font-family: 'Cairo', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl;
+}
+
+/* RTL Layout adjustments */
+html[dir="rtl"] .header-container {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .logo {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .top-nav ul {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .hero-info {
+    text-align: right;
+}
+
+html[dir="rtl"] .info-item {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+html[dir="rtl"] .info-item.theme {
+    flex-direction: row;
+    text-align: center;
+}
+
+html[dir="rtl"] .hero-description {
+    text-align: right;
+}
+
+html[dir="rtl"] .main-container-inner {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .sidebar {
+    order: 1;
+}
+
+html[dir="rtl"] .content {
+    order: 2;
+    padding: 0 1rem 0 0;
+}
+
+html[dir="rtl"] .content-section {
+    border-left: none;
+    border-right: 4px solid #1e3a8a;
+}
+
+html[dir="rtl"] .content-section ul {
+    padding-right: 2rem;
+    padding-left: 0;
+}
+
+html[dir="rtl"] .sidebar-nav a:hover,
+html[dir="rtl"] .sidebar-nav a.active {
+    transform: translateX(-5px);
+}
+
+html[dir="rtl"] .footer-content {
+    text-align: right;
+}
+
+html[dir="rtl"] .footer-bottom-content {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .social-links {
+    flex-direction: row-reverse;
+}
+
+/* Arabic Typography */
+.arabic-body h1, 
+.arabic-body h2, 
+.arabic-body h3, 
+.arabic-body h4 {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+}
+
+.arabic-body p, 
+.arabic-body li, 
+.arabic-body span {
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.8;
+}
+
+/* Arabic specific spacing */
+.arabic-body .content-section h2 {
+    font-size: 1.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.arabic-body .track-card h3,
+.arabic-body .speaker-card h3,
+.arabic-body .date-item h3,
+.arabic-body .fee-card h3 {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+}
+
+/* Arabic numbers styling */
+.arabic-body .price {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    direction: ltr;
+    unicode-bidi: bidi-override;
+}
+
+/* Phone numbers RTL fix */
+.arabic-body .contact-info p:last-child {
+    direction: ltr;
+    text-align: right;
+}
+
+/* Mobile RTL adjustments */
+@media (max-width: 768px) {
+    html[dir="rtl"] .top-nav.active {
+        right: 0;
+        left: auto;
+    }
+    
+    html[dir="rtl"] .main-container-inner {
+        flex-direction: column;
+    }
+    
+    html[dir="rtl"] .content {
+        order: 1;
+        padding: 0;
+    }
+    
+    html[dir="rtl"] .sidebar {
+        order: 2;
+        width: 100%;
+    }
+    
+    html[dir="rtl"] .sidebar.active {
+        right: 0;
+        left: auto;
+    }
+    
+    html[dir="rtl"] .footer-content {
+        text-align: center;
+    }
+    
+    html[dir="rtl"] .footer-bottom-content {
+        flex-direction: column;
+    }
+    
+    html[dir="rtl"] .social-links {
+        justify-content: center;
+    }
+}
+
+/* Arabic list styling */
+.arabic-body ul li::marker {
+    color: #1e3a8a;
+}
+
+/* Fix for Arabic text in cards */
+.arabic-body .track-card,
+.arabic-body .speaker-card,
+.arabic-body .date-item,
+.arabic-body .fee-card {
+    text-align: right;
+}
+
+.arabic-body .date-item,
+.arabic-body .fee-card {
+    text-align: center;
+}
+
+/* Arabic badge styling */
+.arabic-body .footer-badges {
+    direction: rtl;
+}
+
+/* Ensure icons stay in correct position */
+.arabic-body .info-item .icon {
+    order: 2;
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+.arabic-body .info-item span:not(.icon) {
+    order: 1;
+}
+
+/* Arabic responsive text sizing */
+@media (max-width: 480px) {
+    .arabic-body .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .arabic-body .content-section h2 {
+        font-size: 1.4rem;
+    }
+    
+    .arabic-body .track-card h3,
+    .arabic-body .speaker-card h3 {
+        font-size: 1rem;
+    }
+}
