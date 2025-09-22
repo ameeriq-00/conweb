@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - IUPMC 2025</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/arabic-styles.css">
+    <link rel="stylesheet" href="css/contact-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="arabic-body">
+    <!-- Top Navigation -->
+    <header class="top-header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="IUPMC 2025 logo" style="width: 100px;">
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Top Navigation Menu -->
+            <nav class="top-nav" id="topNav">
+                <ul>
+                    <li><a href="index-ar.html">الرئيسية</a></li>
+                    <li><a href="index.html">English</a></li>
+                    <li><a href="contact-ar.html" class="active">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menu Overlay for Mobile -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero-section">
+        <div class="contact-hero-container">
+            <div class="contact-hero-header">
+                <h1 class="contact-title">اتصل بنا</h1>
+                <p class="contact-subtitle">تواصل مع فريق IUPMC 2025</p>
+                <p class="contact-theme-text">نحن هنا للإجابة على جميع استفساراتكم حول المؤتمر</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content Section -->
+    <section class="contact-content-section">
+        <div class="contact-content-container">
+            <!-- Contact Info Cards -->
+            <div class="contact-info-grid">
+                <div class="contact-info-card">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <h3>راسلنا</h3>
+                    <p><a href="mailto:ipams@iunajaf.edu.iq">ipams@iunajaf.edu.iq</a></p>
+                    <span class="contact-desc">للاستفسارات العامة والمعلومات</span>
+                </div>
+                
+                <div class="contact-info-card">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <h3>اتصل بنا</h3>
+                    <p>
+                        <a href="tel:+9647829900246">+964 782 990 0246</a><br>
+                        <a href="tel:+9647827076417">+964 782 707 6417</a>
+                    </p>
+                    <span class="contact-desc">متاح خلال ساعات العمل الرسمية</span>
+                </div>
+                
+                <div class="contact-info-card">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <h3>زرنا</h3>
+                    <p><strong>الجامعة الإسلامية</strong><br>النجف الأشرف، العراق</p>
+                    <span class="contact-desc">مكان انعقاد المؤتمر والجهة المنظمة</span>
+                </div>
+            </div>
+
+            <!-- Contact Form Section -->
+            <div class="contact-form-section">
+                <div class="contact-form-container">
+                    <div class="form-header">
+                        <h2>أرسل لنا رسالة</h2>
+                        <p>لديك أسئلة حول IUPMC 2025؟ نحن نتطلع لسماع منك. املأ النموذج أدناه وسنعاود الاتصال بك في أقرب وقت ممكن.</p>
+                    </div>
+                    
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="contact-form">
+                        <!-- Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="e0f4ea89-1d4a-44b4-9d5d-7fd834670144">
+                        
+                        <!-- Language indicator -->
+                        <input type="hidden" name="language" value="Arabic">
+                        
+                        <!-- Form Fields -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">الاسم الكامل *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">البريد الإلكتروني *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">رقم الهاتف</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="organization">المؤسسة/الجهة</label>
+                                <input type="text" id="organization" name="organization">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">الموضوع *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">اختر موضوعاً</option>
+                                <option value="استفسار عام">استفسار عام</option>
+                                <option value="التسجيل">التسجيل</option>
+                                <option value="تقديم الأوراق البحثية">تقديم الأوراق البحثية</option>
+                                <option value="الرعاية">الرعاية</option>
+                                <option value="الإقامة">الإقامة</option>
+                                <option value="الدعم التقني">الدعم التقني</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">الرسالة *</label>
+                            <textarea id="message" name="message" rows="6" placeholder="يرجى تقديم تفاصيل حول استفسارك..." required></textarea>
+                        </div>
+                        
+                        <!-- Newsletter Subscription -->
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" value="yes">
+                                <span class="checkmark"></span>
+                                الاشتراك في تحديثات المؤتمر والنشرات الإخبارية
+                            </label>
+                        </div>
+                        
+                        <!-- Honeypot for spam protection -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                        
+                        <!-- Submit Button -->
+                        <div class="form-submit">
+                            <button type="submit" class="submit-btn">
+                                <span class="btn-text">إرسال الرسالة</span>
+                                <i class="fas fa-paper-plane btn-icon"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Form Status Messages -->
+                        <div id="form-status" class="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="quick-links-section">
+        <div class="quick-links-container">
+            <h2>روابط سريعة</h2>
+            <div class="quick-links-grid">
+                <a href="index-ar.html#about" class="quick-link-card">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>نبذة عن المؤتمر</h3>
+                    <p>تعرف على المزيد حول IUPMC 2025</p>
+                </a>
+                <a href="index-ar.html#tracks" class="quick-link-card">
+                    <i class="fas fa-list-alt"></i>
+                    <h3>محاور المؤتمر</h3>
+                    <p>اكتشف برامجنا العلمية</p>
+                </a>
+                <a href="index-ar.html#submission" class="quick-link-card">
+                    <i class="fas fa-upload"></i>
+                    <h3>تقديم الأوراق</h3>
+                    <p>قدم بحثك العلمي</p>
+                </a>
+                <a href="index-ar.html#registration" class="quick-link-card">
+                    <i class="fas fa-user-plus"></i>
+                    <h3>التسجيل</h3>
+                    <p>سجل في المؤتمر</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>IUPMC 2025</h3>
+                    </div>
+                    <p>المؤتمر الدولي الثاني للعلوم الطبية والصيدلانية</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index-ar.html#about">نبذة عن المؤتمر</a></li>
+                        <li><a href="index-ar.html#tracks">محاور المؤتمر</a></li>
+                        <li><a href="index-ar.html#keynotes">المتحدثون الرئيسيون</a></li>
+                        <li><a href="index-ar.html#submission">التقديم</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>معلومات مهمة</h4>
+                    <ul>
+                        <li>الجامعة الإسلامية، النجف</li>
+                        <li>13 كانون الأول 2025</li>
+                        <li>العربية والإنجليزية</li>
+                        <li>حدث دولي</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>معلومات الاتصال</h4>
+                    <ul>
+                        <li><a href="mailto:ipams@iunajaf.edu.iq">ipams@iunajaf.edu.iq</a></li>
+                        <li><a href="tel:+9647829900246">9647829900246+</a></li>
+                        <li><a href="tel:+9647827076417">9647827076417+</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 IUPMC - الجامعة الإسلامية في النجف. جميع الحقوق محفوظة.</p>
+                    <div class="footer-badges">
+                        <span class="badge">دولي</span>
+                        <span class="badge">معتمد</span>
+                        <span class="badge">متعدد اللغات</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
